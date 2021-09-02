@@ -3,3 +3,5 @@ saved_models/
 datasets/not_useful/
 datasets/org/
 __pycache__/
+.idea/
+.vscode/
