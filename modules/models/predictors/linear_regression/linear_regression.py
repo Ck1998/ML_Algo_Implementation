@@ -21,10 +21,11 @@ class LinearRegressionTest:
     def run(self):
         self.clf.fit(self.features_train, self.labels_train)
         labels_predict = self.clf.predict(self.features_test)
-        print_stats(labels_test=self.labels_test, labels_pred=labels_predict, algo_type="p")
+        print_stats(labels_test=self.labels_test, labels_pred=labels_predict, algo_type="p",
+                    feature_test=self.features_test)
         if input("\nYou want to save the model ? [Y/N]: ").lower() == "y":
             self.save(input("Enter file suffix: "))
 
 
 if __name__ == "__main__":
-    LinearRegressionTest(dataset_id=2, prefix=True).run()
+    LinearRegressionTest(dataset_id=8, prefix=True).run()

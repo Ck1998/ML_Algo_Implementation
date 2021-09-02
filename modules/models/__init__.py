@@ -1,7 +1,11 @@
 from modules.models.classifiers.random_forest.random_forest import RandomForestTest
+from modules.models.classifiers.svm.svm import SVMTest
+from modules.models.classifiers.knn.knn import KNNTest
+from modules.models.classifiers.sgd.sgd import StochasticGradientDescentTest
+from modules.models.classifiers.naive_bayes.naive_bayes import NaiveBayesTest
 from modules.models.predictors.linear_regression.linear_regression import LinearRegressionTest
-from .logistic_regression.logistic_regression import LogisticRegressionTest
-
+from modules.models.classifiers.logistic_regression.logistic_regression import LogisticRegressionTest
+from modules.models.auxillary.face_detection.face_detection import FaceDetection
 
 ALGO_MAPPING = {
     1: {
@@ -13,6 +17,22 @@ ALGO_MAPPING = {
                 "obj": RandomForestTest
             },
             2: {
+                "name": "Stochastic_Gradient_Descent",
+                "obj": StochasticGradientDescentTest
+            },
+            3: {
+                "name": "K_Nearest_Neighbour",
+                "obj": KNNTest
+            },
+            4: {
+                "name": "Support_Vector_Machine",
+                "obj": SVMTest
+            },
+            5: {
+                "name": "Naive_Bayes",
+                "obj": NaiveBayesTest
+            },
+            6: {
                 "name": "Logistic_Regression",
                 "obj": LogisticRegressionTest
             }
@@ -20,11 +40,21 @@ ALGO_MAPPING = {
     },
     2: {
         "name": "Predictors",
-        "datasets": [],
+        "datasets": [5, 6, 7, 8],
         "algorithms": {
             1: {
                 "name": "Linear_Regression",
                 "obj": LinearRegressionTest
+            }
+        }
+    },
+    3: {
+        "name": "Auxiliary",
+        "datasets": [],
+        "algorithms": {
+            1: {
+                "name": "Face_Detection_Using_OpenCV",
+                "obj": FaceDetection
             }
         }
     }
