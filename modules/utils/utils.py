@@ -9,7 +9,7 @@ import numpy as np
 
 def split_data_set_into_train_and_test(X, y):
     # 70% training and 30% test
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
     return X_train, X_test, y_train, y_test
 
 
@@ -18,7 +18,7 @@ def get_accuracy(test, pred):
 
 
 def get_precision(test, pred):
-    return metrics.precision_score(test, pred, average='micro')
+    return metrics.precision_score(test, pred, average='micro', zero_division=0)
 
 
 def get_recall(test, pred):
@@ -50,7 +50,7 @@ def process_dataset(dateset_id, prefix=False):
     dataset_location, dataset_features, dataset_labels = dataset["location"], dataset["features"], dataset["labels"]
     if prefix:
         dataset_location = "../../../../" + dataset_location
-    features = pd.read_csv(dataset_location, usecols=dataset_features).fillna(0)
+    features = pd.read_csv(dataset_location, usecols=dataset_features, sep=",").fillna(0)
     labels = pd.read_csv(dataset_location, usecols=dataset_labels).fillna(0)
 
     return features, labels

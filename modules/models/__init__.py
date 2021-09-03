@@ -4,8 +4,12 @@ from modules.models.classifiers.knn.knn import KNNTest
 from modules.models.classifiers.sgd.sgd import StochasticGradientDescentTest
 from modules.models.classifiers.naive_bayes.naive_bayes import NaiveBayesTest
 from modules.models.predictors.linear_regression.linear_regression import LinearRegressionTest
+from modules.models.predictors.lasso_regression.lasso_regression import LassoRegressionTest
+from modules.models.predictors.ridge_regression.ridge_regression import RidgeRegressionTest
+from modules.models.predictors.gamma_regressor.gamma_regressor import GammaRegressorTest
 from modules.models.classifiers.logistic_regression.logistic_regression import LogisticRegressionTest
 from modules.models.auxillary.face_detection.face_detection import FaceDetection
+
 
 ALGO_MAPPING = {
     1: {
@@ -45,6 +49,18 @@ ALGO_MAPPING = {
             1: {
                 "name": "Linear_Regression",
                 "obj": LinearRegressionTest
+            },
+            2: {
+                "name": "Lasso_Regression",
+                "obj": LassoRegressionTest
+            },
+            3: {
+                "name": "Ridge_Regression",
+                "obj": RidgeRegressionTest
+            },
+            4: {
+                "name": "Gamma_Regression",
+                "obj": GammaRegressorTest
             }
         }
     },

@@ -15,7 +15,7 @@ class LinearRegressionTest:
 
     def save(self, suffix):
         save_model(model=self.clf,
-                   file_name=f"linear_regression_classifier_{DATASET_MAPPINGS[self.dataset_id]['name']}_{suffix}.model",
+                   file_name=f"linear_regression_predictor_{DATASET_MAPPINGS[self.dataset_id]['name']}_{suffix}.model",
                    prefix=self.prefix)
 
     def run(self):
@@ -28,4 +28,4 @@ class LinearRegressionTest:
 
 
 if __name__ == "__main__":
-    LinearRegressionTest(dataset_id=8, prefix=True).run()
+    LinearRegressionTest(dataset_id=5, prefix=True).run()

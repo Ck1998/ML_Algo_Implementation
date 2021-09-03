@@ -23,7 +23,6 @@ if __name__ == "__main__":
         algo_type = int(input("Your choice > "))
         if algo_type == 0:
             continue
-        datasets_to_use = ALGO_MAPPING[algo_type]["datasets"]
 
         # Choosing an algorithm
         print("\nSelect an Algorithm -")
@@ -35,17 +34,22 @@ if __name__ == "__main__":
             continue
         algo_obj = ALGO_MAPPING[algo_type]['algorithms'][algo_id]['obj']
 
-        # Choosing a dataset
-        print("\nSelect a dataset to use -")
-        for i, val in DATASET_MAPPINGS.items():
-            if i in datasets_to_use:
-                print(f"{i}. {DATASET_MAPPINGS[i]['name'].replace('_', ' ')}")
-        print("Enter '0' to restart.")
-        d_id = int(input("Your choice > "))
-        if d_id == 0:
-            continue
-        print("Running algorithm on the selected dataset")
-        algo_obj(dataset_id=d_id, prefix=False).run()
+        if algo_type == 3:
+            algo_obj().run()
+        else:
+            datasets_to_use = ALGO_MAPPING[algo_type]["datasets"]
 
-        if input("Do you wish to continue? [Y/N]: ").lower() != "y":
-            cont = False
+            # Choosing a dataset
+            print("\nSelect a dataset to use -")
+            for i, val in DATASET_MAPPINGS.items():
+                if i in datasets_to_use:
+                    print(f"{i}. {DATASET_MAPPINGS[i]['name'].replace('_', ' ')}")
+            print("Enter '0' to restart.")
+            d_id = int(input("Your choice > "))
+            if d_id == 0:
+                continue
+            print("Running algorithm on the selected dataset")
+            algo_obj(dataset_id=d_id, prefix=False).run()
+
+            if input("Do you wish to continue? [Y/N]: ").lower() != "y":
+                cont = False
