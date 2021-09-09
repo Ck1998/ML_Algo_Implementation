@@ -4,3 +4,4 @@ matplotlib
 numpy
 pandas
 opencv-python
+yellowbrick
